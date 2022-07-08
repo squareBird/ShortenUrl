@@ -1,6 +1,6 @@
-package com.example.shortenurl.controller;
+package com.example.shortenurl.presentation;
 
-import com.example.shortenurl.service.ShortenUrlService;
+import com.example.shortenurl.application.ShortenUrlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -21,11 +21,11 @@ public class ShortenUrlController {
     }
 
     @RequestMapping(value = "/shortenUrl", method = RequestMethod.POST)
-    ResponseEntity generateShortenUrl(@RequestBody UserInputDTO userInputDTO) {
+    ResponseEntity generateShortenUrl(@RequestBody ShortenUrlRequestDto shortenUrlRequestDTO) {
 
-        ShortenUrlDTO shortenUrlDTO = shortenUrlService.generateShortenUrl(userInputDTO);
+        ShortenUrlResponseDto shortenUrlResponseDto = shortenUrlService.generateShortenUrl(shortenUrlRequestDTO);
 
-        return new ResponseEntity(shortenUrlDTO, HttpStatus.OK);
+        return new ResponseEntity(shortenUrlResponseDto, HttpStatus.OK);
 
     }
 
