@@ -1,6 +1,6 @@
-package com.example.shortenurl.controller;
+package com.example.shortenurl.presentation;
 
-import com.example.shortenurl.service.ShortenUrlNotFoundException;
+import com.example.shortenurl.domain.ShortenUrlNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

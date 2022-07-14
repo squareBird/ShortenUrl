@@ -1,4 +1,4 @@
-package com.example.shortenurl.service;
+package com.example.shortenurl.domain;
 
 public class ShortenUrlNotFoundException extends RuntimeException{
 
