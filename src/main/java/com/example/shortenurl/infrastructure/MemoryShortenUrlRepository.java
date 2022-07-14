@@ -4,12 +4,12 @@ import com.example.shortenurl.domain.ShortenUrlRepository;
 import com.example.shortenurl.domain.ShortenUrl;
 import com.example.shortenurl.domain.ShortenUrlNotFoundException;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Repository
 @Profile("memory")
@@ -23,7 +23,7 @@ public class MemoryShortenUrlRepository implements ShortenUrlRepository {
     }
 
     @Override
-    public ShortenUrl findByShortenUrl(String kwd) {
+    public Optional<ShortenUrl> findByShortenUrl(String kwd) {
 
         ShortenUrl shortenUrl = store.get(kwd);
 
@@ -32,7 +32,7 @@ public class MemoryShortenUrlRepository implements ShortenUrlRepository {
 
         shortenUrl.addViews();
 
-        return shortenUrl;
+        return Optional.of(shortenUrl);
 
     }
 

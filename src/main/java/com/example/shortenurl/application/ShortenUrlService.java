@@ -6,10 +6,12 @@ import com.example.shortenurl.domain.ShortenUrlRepository;
 import com.example.shortenurl.domain.ShortenUrl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Component
+@Service
 public class ShortenUrlService {
 
     private final ShortenUrlRepository shortenUrlRepository;
@@ -24,13 +26,13 @@ public class ShortenUrlService {
         ShortenUrl shortenUrl = new ShortenUrl(shortenUrlRequestDTO.getUrl());
         shortenUrlRepository.save(shortenUrl);
 
-        return new ShortenUrlResponseDto(shortenUrl);
+        return new ShortenUrlResponseDto(Optional.of(shortenUrl));
 
     }
 
     public ShortenUrlResponseDto findByShortUrl(String kwd) {
 
-        ShortenUrl shortenUrl = shortenUrlRepository.findByShortenUrl(kwd);
+        Optional<ShortenUrl> shortenUrl = shortenUrlRepository.findByShortenUrl(kwd);
 
         return new ShortenUrlResponseDto(shortenUrl);
 
@@ -40,7 +42,7 @@ public class ShortenUrlService {
 
         return shortenUrlRepository.showAll()
                 .stream()
-                .map(shortenUrl -> new ShortenUrlResponseDto(shortenUrl))
+                .map(shortenUrl -> new ShortenUrlResponseDto(Optional.ofNullable(shortenUrl)))
                 .toList();
 
     }

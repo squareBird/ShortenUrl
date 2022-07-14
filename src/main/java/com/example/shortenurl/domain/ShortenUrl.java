@@ -2,14 +2,23 @@ package com.example.shortenurl.domain;
 
 import lombok.Getter;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Random;
 
 @Getter
+@Entity
 public class ShortenUrl {
 
+    @Id
     private String shortenUrl;
     private String url;
     private int views;
+
+    public ShortenUrl() {
+
+    }
+
 
     public ShortenUrl(String url) {
         this.shortenUrl = generateUrl();
