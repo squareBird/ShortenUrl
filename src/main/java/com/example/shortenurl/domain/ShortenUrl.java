@@ -25,6 +25,12 @@ public class ShortenUrl {
         this.views = 0;
     }
 
+    public ShortenUrl(String shortenUrl, String url, int views) {
+        this.shortenUrl = shortenUrl;
+        this.url = url;
+        this.views = views;
+    }
+
     public String generateUrl() {
 
         int leftLimit = 48; // numeral '0'
@@ -41,7 +47,6 @@ public class ShortenUrl {
         return generatedString;
 
     }
-
 
     public void addViews() {
         this.views++;
