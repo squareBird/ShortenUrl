@@ -47,7 +47,8 @@ public class ShortenUrlMemoryIntegrationTest {
         ShortenUrlResponseDto result = shortenUrlService.findByShortUrl(shortenUrl);
 
         // then
-        assertThat(result.getViews()).isEqualTo(1);
+        assertThat(shortenUrlResponseDto.getViews()).isEqualTo(1);
+//        assertThat(result.getViews()).isEqualTo(1);
 
     }
 

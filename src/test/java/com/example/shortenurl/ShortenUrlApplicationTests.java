@@ -31,14 +31,14 @@ class ShortenUrlApplicationTests {
     @Test
     public void save() {
         // Given
-        String ORIGIN_URL = "https://www.naver.com";
+        String ORIGIN_URL = "www.naver.com";
 
         ShortenUrlRequestDto shortenUrlRequestDto = new ShortenUrlRequestDto();
         shortenUrlService.generateShortenUrl(shortenUrlRequestDto);
 
         // when
         when(shortenUrlRepository.findByShortenUrl(any())).thenReturn(Optional.of(new ShortenUrl(ORIGIN_URL, "1q2w", 0)));
-        ShortenUrlResponseDto shortenUrlResponseDto = shortenUrlService.findByShortUrl("ddd");
+        ShortenUrlResponseDto shortenUrlResponseDto = shortenUrlService.findByShortUrl(ORIGIN_URL);
 
         // then
         assertThat(shortenUrlResponseDto.getShortenUrl()).isEqualTo(ORIGIN_URL);
