@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Transactional
 @Repository
-@Profile("database")
+@Profile({"prod","dev"})
 public class DatabaseShortenUrlRepository implements ShortenUrlRepository {
 
     private final EntityManager em;

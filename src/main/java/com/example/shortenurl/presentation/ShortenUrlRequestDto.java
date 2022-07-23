@@ -7,4 +7,12 @@ public class ShortenUrlRequestDto {
 
     String url;
 
+    public ShortenUrlRequestDto() {
+
+    }
+
+    public ShortenUrlRequestDto(String url) {
+        this.url = url;
+    }
+
 }

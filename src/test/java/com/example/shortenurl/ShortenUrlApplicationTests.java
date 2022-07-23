@@ -20,35 +20,6 @@ import java.util.Optional;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-@Transactional
 class ShortenUrlApplicationTests {
-
-    @MockBean
-    ShortenUrlService shortenUrlService;
-
-    @MockBean
-    ShortenUrlController shortenUrlController;
-
-    @MockBean
-    MemoryShortenUrlRepository shortenUrlRepository;
-//    DatabaseShortenUrlRepository shortenUrlRepository;
-
-    @Test
-    void saveTest() {
-        ShortenUrl shortenUrl = new ShortenUrl("www.naver.com");
-        shortenUrlRepository.save(shortenUrl);
-    }
-
-    @Test
-    void findByUrl() {
-        ShortenUrl shortenUrl = new ShortenUrl("www.naver.com");
-        String kwd = shortenUrl.getShortenUrl();
-        shortenUrlRepository.save(shortenUrl);
-        Optional<ShortenUrl> byShortenUrl = shortenUrlRepository.findByShortenUrl(kwd);
-
-        System.out.println(byShortenUrl.get().getShortenUrl());
-
-    }
-
 
 }

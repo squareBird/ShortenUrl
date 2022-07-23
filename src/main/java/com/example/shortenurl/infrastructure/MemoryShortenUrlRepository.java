@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Repository
-@Profile("memory")
+@Profile("test")
 public class MemoryShortenUrlRepository implements ShortenUrlRepository {
 
     private final Map<String, ShortenUrl> store = new HashMap<>();

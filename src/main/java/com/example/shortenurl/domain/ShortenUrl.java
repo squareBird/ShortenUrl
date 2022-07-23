@@ -19,7 +19,6 @@ public class ShortenUrl {
 
     }
 
-
     public ShortenUrl(String url) {
         this.shortenUrl = generateUrl();
         this.url = url;
